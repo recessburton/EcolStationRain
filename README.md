@@ -20,7 +20,7 @@ Description：
 	注意，采用本程序的节点只做非根节点运行.
 	
 Logs：
-	
+	V1.1 调整CTPMsg格式，使更加普适化
 
 BS version:
 	BSCTPTest V0.3

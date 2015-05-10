@@ -69,10 +69,9 @@ implementation{
 		msg -> datatype          = 0x02;	//0x01土壤湿度，0x02雨量筒中断. (后续可扩展)
 		msg -> id                        = id;
 		msg -> nodeid             = TOS_NODE_ID;
-		msg -> temperature  = temperature;
-		msg -> humidity         = humidity;
+		msg -> data1                = temperature;
+		msg -> data2                = humidity;
 		msg -> eventtime       = inttime;
-		msg -> addata             = 0xFFFF; //填充
 		
 		if(call Send.send(&packet, sizeof(CTPMsg)) != SUCCESS)
 			call Leds.led0On();
