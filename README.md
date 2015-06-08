@@ -1,6 +1,6 @@
 Author:YTC 
 Mail:recessburton@gmail.com
-Created Time: 2015.5.9
+Created Time: 2015.6.4
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -20,11 +20,9 @@ Description：
 	注意，采用本程序的节点只做非根节点运行.
 	
 Logs：
+	V1.3 集成了EcolStationNeighour邻居建立接口，建立邻居关系，并CTP发送。
 	V1.2 结合新版BS做了调整
 	V1.1 调整CTPMsg格式，使更加普适化
-
-BS version:
-	BSCTPTest V1.0
 
 	
 Known Bugs: 

@@ -28,6 +28,7 @@ implementation{
 	components CollectionC as Collector;
 	components new CollectionSenderC(0xee);
 	components TelosbTimeSyncNodesC;
+	components EcolStationNeighbourC;
 	
 	components HplMsp430InterruptC as IOInterruptC;
 	components new Msp430InterruptC() as MspInterrupt;
@@ -44,4 +45,5 @@ implementation{
 	App.Sensors                  -> TelosbSensorC;
 	MspInterrupt                -> IOInterruptC.Port27;
 	App.GpInterrupt         -> MspInterrupt;
+	App.EcolStationNeighbour -> EcolStationNeighbourC;
 }

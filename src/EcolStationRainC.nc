@@ -33,6 +33,7 @@ module EcolStationRainC{
 		interface TelosbTimeSyncNodes as TimeSync;
 		interface TelosbBuiltinSensors as Sensors;
 		interface GpioInterrupt as GpInterrupt;
+		interface EcolStationNeighbour;
 	}
 }
 implementation{
@@ -50,6 +51,7 @@ implementation{
 		call GpInterrupt.enableFallingEdge();	//下降沿中断使能(根据雨量筒特性，中断为下降沿)
 		call RadioControl.start();
 		call Sensors.readAllSensors();		//预读取（空读取），确保了第一次读取的成功
+		call EcolStationNeighbour.startNei();
 	}
 	
 	event void RadioControl.startDone(error_t err){
