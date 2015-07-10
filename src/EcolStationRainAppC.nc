@@ -34,6 +34,9 @@ implementation{
 	components new Msp430InterruptC() as MspInterrupt;
 	
 	components new TelosbSensorC(100);
+
+	//LPL
+	components CC2420ActiveMessageC as LplRadio;
 	
 	App.Boot                         -> MainC;
 	App.RadioControl        -> ActiveMessageC;
@@ -46,4 +49,7 @@ implementation{
 	MspInterrupt                -> IOInterruptC.Port27;
 	App.GpInterrupt         -> MspInterrupt;
 	App.EcolStationNeighbour -> EcolStationNeighbourC;
+
+	//LPL
+	App.LowPowerListening -> LplRadio;
 }
