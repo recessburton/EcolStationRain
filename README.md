@@ -20,6 +20,7 @@ Description：
 	注意，采用本程序的节点只做非根节点运行.
 	
 Logs：
+	V1.6 LPL设置成1s，（1024）
 	V1.5 更新邻居发现组件为0.4版本
 	V1.4 无线功率调只最大，payload增至35字节（通过makefile），加入LPL机制。
 	V1.3 集成了EcolStationNeighour邻居建立接口，建立邻居关系，并CTP发送。
