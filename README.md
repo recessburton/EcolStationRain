@@ -20,6 +20,7 @@ Description：
 	注意，采用本程序的节点只做非根节点运行.
 	
 Logs：
+	V1.8 更新邻居发现组件为0.6版本,调整链路质量计算方法
 	V1.7 更新邻居发现组件为0.5版本
 	V1.6 LPL设置成1s，（1024）
 	V1.5 更新邻居发现组件为0.4版本
@@ -30,7 +31,7 @@ Logs：
 
 
 BS version:
-	BSCTPTest V1.8
+	BSCTPTest V1.9
 	
 Known Bugs: 
 		none.
