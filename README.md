@@ -20,6 +20,7 @@ Description：
 	注意，采用本程序的节点只做非根节点运行.
 	
 Logs：
+	V1.7 更新邻居发现组件为0.5版本
 	V1.6 LPL设置成1s，（1024）
 	V1.5 更新邻居发现组件为0.4版本
 	V1.4 无线功率调只最大，payload增至35字节（通过makefile），加入LPL机制。
@@ -29,7 +30,7 @@ Logs：
 
 
 BS version:
-	BSCTPTest V1.7
+	BSCTPTest V1.8
 	
 Known Bugs: 
 		none.
