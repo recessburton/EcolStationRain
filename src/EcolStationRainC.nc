@@ -36,6 +36,9 @@ module EcolStationRainC{
 		interface EcolStationNeighbour;
 		//LPL
 		interface LowPowerListening;
+		
+		interface Reset;
+		interface Timer<TMilli>;
 	}
 }
 implementation{
@@ -49,6 +52,7 @@ implementation{
 	norace volatile bool sendBusy = FALSE;
 	
 	event void Boot.booted(){
+		call Timer.startOneShot(7372800);		//两小时重启一次
 		call TimeSync.Sync();
 		call GpInterrupt.enableFallingEdge();	//下降沿中断使能(根据雨量筒特性，中断为下降沿)
 		call RadioControl.start();
@@ -131,4 +135,10 @@ implementation{
 
 	event void Sensors.readBatteryDone(error_t err, uint16_t data){
 	}
+	
+	event void Timer.fired(){
+		call RadioControl.stop();	
+		call Reset.reset();
+	}
+	
 }

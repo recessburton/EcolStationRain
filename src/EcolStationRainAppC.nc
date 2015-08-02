@@ -34,6 +34,9 @@ implementation{
 	components new Msp430InterruptC() as MspInterrupt;
 	
 	components new TelosbSensorC(100);
+	
+	components new TimerMilliC() as Timer;
+	components ResetC;
 
 	//LPL
 	components CC2420ActiveMessageC as LplRadio;
@@ -52,4 +55,7 @@ implementation{
 
 	//LPL
 	App.LowPowerListening -> LplRadio;
+	
+	App.Timer -> Timer;
+	App.Reset -> ResetC;
 }
