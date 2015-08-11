@@ -39,7 +39,7 @@ implementation{
 	components ResetC;
 
 	//LPL
-	components CC2420ActiveMessageC as LplRadio;
+	//components CC2420ActiveMessageC as LplRadio;
 	
 	App.Boot                         -> MainC;
 	App.RadioControl        -> ActiveMessageC;
@@ -54,7 +54,7 @@ implementation{
 	App.EcolStationNeighbour -> EcolStationNeighbourC;
 
 	//LPL
-	App.LowPowerListening -> LplRadio;
+	//App.LowPowerListening -> LplRadio;
 	
 	App.Timer -> Timer;
 	App.Reset -> ResetC;

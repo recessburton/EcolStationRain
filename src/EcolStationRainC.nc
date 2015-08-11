@@ -35,7 +35,7 @@ module EcolStationRainC{
 		interface GpioInterrupt as GpInterrupt;
 		interface EcolStationNeighbour;
 		//LPL
-		interface LowPowerListening;
+	//	interface LowPowerListening;
 		
 		interface Reset;
 		interface Timer<TMilli>;
@@ -56,7 +56,7 @@ implementation{
 		call TimeSync.Sync();
 		call GpInterrupt.enableFallingEdge();	//下降沿中断使能(根据雨量筒特性，中断为下降沿)
 		call RadioControl.start();
-		call LowPowerListening.setLocalWakeupInterval(1024);
+	//	call LowPowerListening.setLocalWakeupInterval(1024);
 		call Sensors.readAllSensors();		//预读取（空读取），确保了第一次读取的成功
 		call EcolStationNeighbour.startNei();
 	}
