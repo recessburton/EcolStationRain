@@ -70,6 +70,11 @@ implementation{
 	}
 	
 	event void RadioControl.stopDone(error_t err){	
+		if(err != SUCCESS){
+			call RadioControl.stop();	
+		}else{
+			call Reset.reset();
+		}
 	}
 	
 	task void sendMessage(){
@@ -138,7 +143,6 @@ implementation{
 	
 	event void Timer.fired(){
 		call RadioControl.stop();	
-		call Reset.reset();
 	}
 	
 }
