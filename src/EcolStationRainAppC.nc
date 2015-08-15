@@ -44,6 +44,7 @@ implementation{
 	App.Boot                         -> MainC;
 	App.RadioControl        -> ActiveMessageC;
 	App.RoutingControl    -> Collector;
+	App.RootControl          -> Collector;
 	App.Leds                         -> LedsC;
 	App.Send                        -> CollectionSenderC;
 	App.Receive                   -> Collector.Receive[0xee];

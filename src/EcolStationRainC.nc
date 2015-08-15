@@ -27,6 +27,7 @@ module EcolStationRainC{
 		interface Boot;
 		interface SplitControl as RadioControl;
 		interface StdControl as RoutingControl;
+		interface RootControl;
 		interface Send;
 		interface Leds;
 		interface Receive;
@@ -142,6 +143,8 @@ implementation{
 	}
 	
 	event void Timer.fired(){
+		call EcolStationNeighbour.restart();
+		call RoutingControl.stop();
 		call RadioControl.stop();	
 	}
 	
