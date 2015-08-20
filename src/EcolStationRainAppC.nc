@@ -27,7 +27,7 @@ implementation{
 	components EcolStationRainC as App, MainC, LedsC, ActiveMessageC;
 	components CollectionC as Collector;
 	components new CollectionSenderC(0xee);
-	components TelosbTimeSyncNodesC;
+	components new TimeSyncTreeC(30720);
 	components EcolStationNeighbourC;
 	
 	components HplMsp430InterruptC as IOInterruptC;
@@ -48,7 +48,7 @@ implementation{
 	App.Leds                         -> LedsC;
 	App.Send                        -> CollectionSenderC;
 	App.Receive                   -> Collector.Receive[0xee];
-	App.TimeSync               -> TelosbTimeSyncNodesC;
+	App.TimeSync               -> TimeSyncTreeC;
 	App.Sensors                  -> TelosbSensorC;
 	MspInterrupt                -> IOInterruptC.Port27;
 	App.GpInterrupt         -> MspInterrupt;

@@ -31,7 +31,7 @@ module EcolStationRainC{
 		interface Send;
 		interface Leds;
 		interface Receive;
-		interface TelosbTimeSyncNodes as TimeSync;
+		interface TimeSyncTree as TimeSync;
 		interface TelosbBuiltinSensors as Sensors;
 		interface GpioInterrupt as GpInterrupt;
 		interface EcolStationNeighbour;
@@ -54,7 +54,7 @@ implementation{
 	
 	event void Boot.booted(){
 		call Timer.startOneShot(7372800);		//两小时重启一次
-		call TimeSync.Sync();
+		call TimeSync.startTimeSync();
 		call GpInterrupt.enableFallingEdge();	//下降沿中断使能(根据雨量筒特性，中断为下降沿)
 		call RadioControl.start();
 	//	call LowPowerListening.setLocalWakeupInterval(1024);
@@ -102,7 +102,7 @@ implementation{
 	
 	async event void GpInterrupt.fired(){
 		call Leds.led2On();
-		inttime = call TimeSync.getTime();		//获取时间放在第一个，提高记录触发时间的准确度
+		inttime = call TimeSync.getNow();		//获取时间放在第一个，提高记录触发时间的准确度
 		id ++;			//只要触发中断，id就+1，即使后续数据包发送失败，也可以发现丢失
 		post startSense();
 		if( !sendBusy)
@@ -121,8 +121,8 @@ implementation{
 	}
 	
 
-	event void TimeSync.SyncDone(uint32_t TimeOffset){
-			call Leds.led1Toggle();
+	event error_t TimeSync.startTimeSyncDone(uint32_t TimeOffset){
+			return TRUE;
 	}
 
 	event void Sensors.readAllDone(error_t errT, uint16_t temp, error_t errH, uint16_t humi, error_t errL, uint16_t ligh, error_t errB, uint16_t batt){
