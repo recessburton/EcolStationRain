@@ -20,6 +20,7 @@ Description：
 	注意，采用本程序的节点只做非根节点运行.
 	
 Logs：
+	V2.5 更新邻居发现组件为V1.1版本,加入了链路RSSI和LQI值
 	V2.4 更新时间同步组件
 	V2.3 更新邻居发现组件为V1.0版本,重新定义链路质量评估错误，修改了多个Bug.LPL定义为50ms
 	V2.2 更新邻居发现组件为V0.8版本,修正快速排序中的错误。
@@ -37,7 +38,7 @@ Logs：
 
 
 BS version:
-	BSCTPTest V2.6
+	BSCTPTest V2.7
 	
 Known Bugs: 
 		none.
